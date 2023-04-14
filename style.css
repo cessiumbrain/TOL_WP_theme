@@ -18,6 +18,12 @@ html {
   margin: 0;
   height: 12vh;
 }
+.header-nav ul {
+  display: flex;
+  width: 100%;
+  margin: 0px 20px 0px 20px;
+  justify-content: space-between;
+}
 .header-nav li a {
   text-decoration: none;
   color: white;
@@ -70,6 +76,10 @@ body {
   color: white;
   font-size: 2em;
 }
+.footer i:hover {
+  transform: scale(1.2);
+  transition: all 0.25s ease-out;
+}
 
 .shows-body {
   background: white;
@@ -113,43 +123,59 @@ body {
   background: #000;
 }
 
-.about-us-grid {
-  padding: 5px;
+.about-us-wrapper {
+  padding: 20px;
   width: 100vw;
   height: 70vh;
   background: black;
   color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
   gap: 10px;
 }
-.about-us-grid .card-outer:hover > .card-inner {
+.about-us-wrapper .card-outer:hover > .card-inner {
   transform: rotateY(180deg);
   background: rgb(2, 113, 94);
   transition: all 0.5s ease-out;
 }
-.about-us-grid .card-outer {
+.about-us-wrapper .card-outer {
   width: 100%;
   position: relative;
-  border: 5px solid red;
+  overflow: hidden;
   border-radius: 10px;
-  filter: drop-shadow(30px 10px 4px #4444dd);
+  transform-style: preserve-3d;
 }
-.about-us-grid .card-outer .card-inner {
+.about-us-wrapper .card-outer .card-inner {
   position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  height: 100%;
 }
-.about-us-grid .card-outer .card-inner .bio-pic {
+.about-us-wrapper .card-outer .card-inner .bio-pic {
   position: absolute;
   width: 100%;
-  height: 100px;
-  background: red;
+  height: 100%;
+  backface-visibility: hidden;
+  background-size: cover;
 }
-.about-us-grid .card-outer .card-inner .bio {
+.about-us-wrapper .card-outer .card-inner .bio {
   transform: rotateY(180deg);
+  backface-visibility: hidden;
+  padding: 10px;
+  text-align: center;
+}
+.about-us-wrapper .mobile-bio {
+  display: none;
+}
+.about-us-wrapper .card-outer {
+  display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   * {
     color: red;
+  }
+  .mobile-bio-one {
+    display: block;
   }
 }/*# sourceMappingURL=style.css.map */

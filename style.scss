@@ -25,6 +25,12 @@ html {
     padding: 16;
     margin: 0;
     height: 12vh;
+    ul {
+        display: flex;
+        width: 100%;
+        margin: 0px 20px 0px 20px;
+        justify-content: space-between;
+    }
     li a {
         text-decoration: none;
         color: $secondary-color;
@@ -71,6 +77,11 @@ body {
     i{
         color: white;
         font-size: 2em;
+
+    }
+    i:hover {
+        transform: scale(1.2);
+        transition: all .25s ease-out;
     }
     display: flex;
     justify-content: space-around;
@@ -128,73 +139,69 @@ background: white;
 .about-us-body {
     background: $primary-color;
 }
-.about-us-grid {
-    padding: 5px;
+.about-us-wrapper {
+    padding: 20px;
     width: 100vw;
     height: 70vh;
     background:black;
     color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
+
     gap: 10px;
 
-//flip cards
-.card-outer:hover > .card-inner{
-    transform: rotateY(180deg);
-    background: rgb(2, 113, 94);
-    transition: all 0.5s ease-out;
-}
-.card-outer {
-    width: 100%;
-    position: relative;
-    border: 5px solid red;
-    border-radius: 10px;
-    filter: drop-shadow(30px 10px 4px #4444dd);
+    //flip cards
+    .card-outer:hover > .card-inner{
+        transform: rotateY(180deg);
+        background: rgb(2, 113, 94);
+        transition: all 0.5s ease-out;
+    }
+    .card-outer {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transform-style: preserve-3d;
 
-    .card-inner {
-        position: absolute;
-    .bio-pic {
+        .card-inner {
             position: absolute;
-            width: 100%;
-            height: 100px;
-            background: red;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            height: 100%;
+        .bio-pic {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                background-size: cover;
+
+            }
+        .bio {
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            padding: 10px;
+            text-align: center;
         }
-    .bio {
-        transform: rotateY(180deg)
+        }
     }
-    }
-}
 
-//     .card:hover {
-//         transform: rotateY(180deg);
-//         color: red;
-//     }
-//     .card {
-//     transform-style: preserve-3d;
-//     height: 70vh;
-//     transition: all 0.5s ease;
-//     display: absolute;
-//     .bio {
-        
-//         backface-visibility: hidden;
-//         transform: rotateY(180deg);
-//         display: absolute;
-//     }
-//     img {
-//         display: absolute;
-//         display: inline-block;
-//         width: 100%;
-//         border-radius: 5px;
-//         height: 100%;
-//         backface-visibility: hidden;
-//     }
-// }
-    
+    //mobile bios
+    .mobile-bio {
+        display: none;
+    }
+    .card-outer {
+        display: none;
+    }
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     *{
         color: red;
     }
+
+    .mobile-bio-one {
+        display: block;
+    }
+
   }
